@@ -112,13 +112,13 @@ if st.button("Translate"):
             lang=languages[selected_language]
         )
 
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
+        audio_file = "translation.mp3"
 
-            tts.save(fp.name)
+        tts.save(audio_file)
 
-            audio_file = open(fp.name, "rb")
+    with open(audio_file, "rb") as file:
 
-            st.audio(audio_file.read())
+        st.audio(file.read())
 
     else:
 
